@@ -1,0 +1,63 @@
+function calculateMoney(soldTicket){
+    if (soldTicket < 0){
+        return 'Invalid Number';
+    }
+    else{
+        return ((120 * soldTicket)-(500 + (8 * 50)));
+    }
+    
+}
+
+function checkName(name){
+    if(typeof(name) !== 'string'){
+        return 'invalid';
+    }
+    else if(name.slice(-1) === 'a' || name.slice(-1) === 'y' || name.slice(-1) === 'i' || name.slice(-1) === 'e' || name.slice(-1) === 'o' || name.slice(-1) === 'u' || name.slice(-1) === 'A' || name.slice(-1) === 'Y' || name.slice(-1) === 'I' || name.slice(-1) === 'E' || name.slice(-1) === 'O' || name.slice(-1) === 'U'){
+        return 'Good Name';
+    }
+    else{
+        return 'Bad Name';
+    }
+}
+
+function deleteInvalids(array) {
+    if (!Array.isArray(array)) {
+        return 'Invalid Array';
+    }
+    else {
+        return numArray = array.filter(function (ar) { return typeof (ar) === 'number' && !isNaN(ar) });
+    }
+}
+
+function password(obj){
+    if(obj.hasOwnProperty('name') && obj.hasOwnProperty('birthYear') && obj.hasOwnProperty('siteName')){
+        if(obj.birthYear.toString().length === 4){
+            return obj.siteName[0].toUpperCase() +  obj.siteName.slice(1) + '#' + obj.name + '@' + obj.birthYear;
+        }
+        else{
+            return 'invalid';
+        }
+    }
+    else{
+        return 'invalid';
+    }
+}
+
+function monthlySavings(arr, livingCost) {
+    if (Array.isArray(arr) && typeof (livingCost) === 'number') {
+        let totalIncomeArr = arr.map(function (ar) { return ar >= 3000 ? ar - ((20 / 100) * ar) : ar });
+        let savings = 0;
+        let totalIncome = 0;
+
+        for (let i of totalIncomeArr) {
+            totalIncome += i;
+        }
+
+        savings = totalIncome - livingCost;
+        return savings >= 0 ? savings : 'earn more';
+    }
+    else {
+        return 'invalid input';
+    }
+}
+
